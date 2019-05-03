@@ -79,11 +79,11 @@ function checkValidation() {
     return false;
   }
 
-  // if (!isUrlValid(vClientCompanyUrlValue)) {
-  //   document.getElementById("companyUrlInvalid").innerHTML =
-  //     "Invalid company url.";
-  //   return false;
-  // }
+  if (!validateUrl(vManagerEmailValue)) {
+    document.getElementById("companyUrlInvalid").innerHTML =
+      "Invalid company url";
+    return false;
+  }
 
   if (vManagerNameValue == "") {
     document.getElementById("managerNameInvalid").innerHTML =
@@ -97,6 +97,12 @@ function checkValidation() {
     return false;
   }
 
+  if (!validateEmail(vManagerEmailValue)) {
+    document.getElementById("managerEmailInvalid").innerHTML =
+      "Invalid manager email";
+    return false;
+  }
+
   if (vInstructionValue == "") {
     document.getElementById("instructionInvalid").innerHTML =
       "Select any instruction.";
@@ -104,15 +110,18 @@ function checkValidation() {
   }
 }
 
-function isUrlValid(userInput) {
-  var res =
-    "/(http(s)?://.)?(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&=]*)/g";
-  return res.test(userInput);
-  // if (res == null) return false;
-  // else return true;
+function validateUrl(url) {
+  var reg = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+  if (reg.test(url) == false) {
+    return false;
+  }
+  return true;
 }
 
-function isEmailValid(userInput) {
-  var re = "[a - zA - Z0 -9_.+-] +@[a - zA - Z0 - 9 -]+.[a - zA - Z0 - 9 -.] +";
-  return re.test(userInput);
+function validateEmail(email) {
+  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (reg.test(email) == false) {
+    return false;
+  }
+  return true;
 }
