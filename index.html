@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Bootstrap Task Demo </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <form>
+
+            <!-- Section First -->
+
+            <div class="row">
+                <div class="form-group required col-sm-6" style="margin-bottom:0px">
+                    <label class="control-label" for="selectionProject">Type of Project:</label>
+                </div>
+                <div class="form-group required col-sm-4" style="margin-bottom:0px">
+                    <label class="control-label" for="selectionJob">Type of Job:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group required col-sm-6">
+                    <select class="form-control" id="selectionProject">
+                        <option hidden>Choose</option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                        <option>Type 3</option>
+                        <option>Type 4</option>
+                    </select>
+                </div>
+
+                <div class="form-group required col-sm-4">
+                    <select class="form-control" id="selectionJob">
+                        <option hidden>Choose</option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                        <option>Type 3</option>
+                        <option>Type 4</option>
+                    </select>
+                </div>
+                <div class="checkbox col-sm-2">
+                    <label><input type="checkbox" value="" id="cbRemoteJob"> Remote Job </label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group required col-sm-6">
+                    <label class="control-label">No of Resources needed:</label>
+                    <input type="number" class="form-control" placeholder="Ex. 10" id="inputResource">
+                </div>
+                <div class="form-group required col-sm-6">
+                    <label class="control-label" for="selectionSalaryCountry">Salary per month:</label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <select class="form-control" id="selectionSalaryCountry">
+                                <option hidden>Choose</option>
+                                <option>INR</option>
+                                <option>USD</option>
+                                <option>GBP</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" placeholder="min salary" id="inputMinSalary">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" placeholder="max salary" id="inputMaxSalary">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group required col-sm-6">
+                    <label class="control-label" for="selectionTime">When do you need ?</label>
+                    <select class="form-control" id="selectionTime">
+                        <option hidden>Choose</option>
+                        <option>Today (Urgent)</option>
+                        <option>ASAP</option>
+                        <option>In one month</option>
+                        <option>No time limit</option>
+                    </select>
+                </div>
+                <div class="form-group required col-sm-6">
+                    <label class="control-label" for="selectionApplicant">Who can apply for this job ?</label>
+                    <select class="form-control" id="selectionApplicant">
+                        <option hidden>Choose</option>
+                        <option>IT - Software</option>
+                        <option>Electical</option>
+                        <option>Electronics</option>
+                        <option>Commerce</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- divider -->
+
+            <span class="divider"></span>
+
+            <!-- Section Second -->
+
+            <p class="defaultMargin" style="font-size:16px;font-weight:bold">
+                Client Details
+            </p>
+
+            <div class="row">
+                <div class="form-group required col-sm-6">
+                    <label class="control-label">Client Company Name</label>
+                    <input type="text" class="form-control" placeholder="Ex. Tophyre" id="inputClientCompanyName">
+                </div>
+                <div class="form-group required col-sm-6">
+                    <label class="control-label">Client Company Url</label>
+                    <input type="text" class="form-control" placeholder="Ex. https://www.tophyre.com"
+                        id="inputClientCompanyUrl">
+                </div>
+            </div>
+
+            <p class="defaultMargin" style="font-size:16px;font-weight:bold">
+                Hiring Manager Details
+            </p>
+
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Ex. John Doe" id="inputManagerName">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Email</label>
+                    <input type="text" class="form-control" placeholder="Ex. johndoe@gmail.com" id="inputManagerEmail">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="selectionInstructions">Special Instructions:</label>
+                    <select class="form-control" id="selectionInstructions">
+                        <option hidden>Choose</option>
+                        <option>Instruction 1</option>
+                        <option>Instuction 2</option>
+                        <option>Instruction 3</option>
+                        <option>Instruction 4</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block"
+                        style="margin-top:16px" onclick="checkValidation()">
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+        <script>
+
+            function checkValidation() {
+                var vProjectNameValue = document.getElementById("selectionProject").value;
+                var vJobNameValue = document.getElementById("selectionJob").value;
+                var isRemotejobValue = document.getElementById("cbRemoteJob").value;
+                var vResourceCountValue = document.getElementById("inputResource").value;
+                var vSalaryCountryValue = document.getElementById("selectionSalaryCountry").value;
+                var vMinSalaryValue = document.getElementById("inputMinSalary").value;
+                var vMaxSalaryValue = document.getElementById("inputMaxSalary").value;
+                var vTimeValue = document.getElementById("selectionTime").value;
+                var vApplicantValue = document.getElementById("selectionApplicant").value;
+                var vClientCompanyNameValue = document.getElementById("inputClientCompanyName").value;
+                var vClientCompanyUrlValue = document.getElementById("inputClientCompanyUrl").value;
+                var vManagerNameValue = document.getElementById("inputManagerName").value;
+                var vManagerEmailValue = document.getElementById("inputManagerEmail").value;
+                var vInstructionValue = document.getElementById("selectionInstructions").value;
+
+                if (vProjectNameValue == "" || vProjectNameValue == "Choose") {
+                    alert("Select any project.");
+                    return;
+                }
+
+                if (vJobNameValue == "" || vJobNameValue == "Choose") {
+                    alert("Select any job.");
+                    return;
+                }
+
+                if (vResourceCountValue == "") {
+                    alert("Resource value must be filled out");
+                    return;
+                }
+
+                if (vSalaryCountryValue == "" || vSalaryCountryValue == "Choose") {
+                    alert("Select appropriate salary unit.");
+                    return;
+                }
+
+                if (vMinSalaryValue == "") {
+                    alert("Minimum salary must be filled out");
+                    return;
+                }
+
+                if (vMaxSalaryValue == "") {
+                    alert("Maximum salary must be filled out");
+                    return;
+                }
+
+                if (vTimeValue == "" || vTimeValue == "Choose") {
+                    alert("Select any appropriate time.");
+                    return;
+                }
+
+                if (vApplicantValue == "" || vApplicantValue == "Choose") {
+                    alert("Select any applicant type.");
+                    return;
+                }
+
+                if (vClientCompanyNameValue == "") {
+                    alert("Company name must be filled out");
+                    return;
+                }
+
+                if (vClientCompanyUrlValue == "") {
+                    alert("Company url must be filled out");
+                    return;
+                }
+            }
+
+        </script>
+
+    </div>
+
+</body>
+
+</html>

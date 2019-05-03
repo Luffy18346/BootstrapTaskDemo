@@ -1,0 +1,27 @@
+.divider {
+  height: 1px;
+  width: 100%;
+  display: block; /* for use on default inline elements like span */
+  margin: 24px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.form-group.required .control-label:before {
+  content: "*";
+  font-size: 20px;
+  margin-right: 8px;
+  color: red;
+}
+
+label {
+  font-weight: normal !important;
+}
+
+.container {
+  margin-top: 24px;
+}
+
+.defaultMargin {
+  margin: 16px 0 !important;
+}
