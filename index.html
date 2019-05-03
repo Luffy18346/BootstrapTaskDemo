@@ -36,6 +36,8 @@
                         <option>Type 3</option>
                         <option>Type 4</option>
                     </select>
+                    <span id="projectNameValueInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
 
                 <div class="form-group required col-sm-4">
@@ -46,34 +48,45 @@
                         <option>Type 3</option>
                         <option>Type 4</option>
                     </select>
+                    <span id="jobNameValueInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
                 <div class="checkbox col-sm-2">
                     <label><input type="checkbox" value="" id="cbRemoteJob"> Remote Job </label>
                 </div>
-
             </div>
 
             <div class="row">
                 <div class="form-group required col-sm-6">
                     <label class="control-label">No of Resources needed:</label>
-                    <input type="number" class="form-control" placeholder="Ex. 10" id="inputResource">
+                    <input type="number" class="form-control" onkeydown="return event.keyCode !== 69"
+                        placeholder="Ex. 10" id="inputResource">
+                    <span id="resourceValueInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
                 <div class="form-group required col-sm-6">
                     <label class="control-label" for="selectionSalaryCountry">Salary per month:</label>
                     <div class="row">
                         <div class="col-sm-4">
                             <select class="form-control" id="selectionSalaryCountry">
-                                <option hidden>Choose</option>
-                                <option>INR</option>
+                                <option selected>INR</option>
                                 <option>USD</option>
                                 <option>GBP</option>
                             </select>
+                            <span id="salaryCountryValueInvalid" class="text-danger" style="font-weight:bold">
+                            </span>
                         </div>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control" placeholder="min salary" id="inputMinSalary">
+                            <input type="number" class="form-control" onkeydown="return event.keyCode !== 69"
+                                placeholder="min salary" id="inputMinSalary">
+                            <span id="minSalaryInvalid" class="text-danger" style="font-weight:bold">
+                            </span>
                         </div>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control" placeholder="max salary" id="inputMaxSalary">
+                            <input type="number" class="form-control" onkeydown="return event.keyCode !== 69"
+                                placeholder="max salary" id="inputMaxSalary">
+                            <span id="maxSalaryInvalid" class="text-danger" style="font-weight:bold">
+                            </span>
                         </div>
                     </div>
 
@@ -89,6 +102,8 @@
                         <option>ASAP</option>
                         <option>In one month</option>
                         <option>No time limit</option>
+                        <span id="timeInvalid" class="text-danger" style="font-weight:bold">
+                        </span>
                     </select>
                 </div>
                 <div class="form-group required col-sm-6">
@@ -100,6 +115,8 @@
                         <option>Electronics</option>
                         <option>Commerce</option>
                     </select>
+                    <span id="applicantValueInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
             </div>
 
@@ -109,7 +126,7 @@
 
             <!-- Section Second -->
 
-            <p class="defaultMargin" style="font-size:16px;font-weight:bold">
+            <p class="defaultMargin" style="font-size:16px;font-weight:bold" style="font-weight:bold">
                 Client Details
             </p>
 
@@ -117,32 +134,40 @@
                 <div class="form-group required col-sm-6">
                     <label class="control-label">Client Company Name</label>
                     <input type="text" class="form-control" placeholder="Ex. Tophyre" id="inputClientCompanyName">
+                    <span id="companyNameInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
                 <div class="form-group required col-sm-6">
                     <label class="control-label">Client Company Url</label>
                     <input type="text" class="form-control" placeholder="Ex. https://www.tophyre.com"
                         id="inputClientCompanyUrl">
+                    <span id="companyUrlInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
             </div>
 
-            <p class="defaultMargin" style="font-size:16px;font-weight:bold">
+            <p class="defaultMargin" style="font-size:16px;font-weight:bold" style="font-weight:bold">
                 Hiring Manager Details
             </p>
 
             <div class="row">
-                <div class="form-group col-sm-6">
-                    <label>Name</label>
+                <div class="form-group required col-sm-6">
+                    <label class="control-label">Name</label>
                     <input type="text" class="form-control" placeholder="Ex. John Doe" id="inputManagerName">
+                    <span id="managerNameInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
-                <div class="form-group col-sm-6">
-                    <label>Email</label>
+                <div class="form-group required col-sm-6">
+                    <label class="control-label">Email</label>
                     <input type="text" class="form-control" placeholder="Ex. johndoe@gmail.com" id="inputManagerEmail">
+                    <span id="managerEmailInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-sm-6">
-                    <label for="selectionInstructions">Special Instructions:</label>
+                <div class="form-group required col-sm-6">
+                    <label for="selectionInstructions" class="control-label">Special Instructions:</label>
                     <select class="form-control" id="selectionInstructions">
                         <option hidden>Choose</option>
                         <option>Instruction 1</option>
@@ -150,6 +175,8 @@
                         <option>Instruction 3</option>
                         <option>Instruction 4</option>
                     </select>
+                    <span id="instructionInvalid" class="text-danger" style="font-weight:bold">
+                    </span>
                 </div>
             </div>
 
@@ -157,15 +184,13 @@
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
                     <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block"
-                        style="margin-top:16px" onclick="checkValidation()">
+                        style="margin-top:16px" onclick="return checkValidation()">
                         Submit
                     </button>
                 </div>
             </div>
 
         </form>
-
-    </div>
 
 </body>
 

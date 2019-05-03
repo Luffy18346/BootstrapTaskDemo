@@ -20,52 +20,99 @@ function checkValidation() {
     .value;
 
   if (vProjectNameValue == "" || vProjectNameValue == "Choose") {
-    alert("Select any project.");
-    return;
+    document.getElementById("projectNameValueInvalid").innerHTML =
+      "Select any project.";
+    return false;
   }
 
   if (vJobNameValue == "" || vJobNameValue == "Choose") {
-    alert("Select any job.");
-    return;
+    document.getElementById("jobNameValueInvalid").innerHTML =
+      "Select any job.";
+    return false;
   }
 
   if (vResourceCountValue == "") {
-    alert("Resource value must be filled out");
-    return;
+    document.getElementById("resourceValueInvalid").innerHTML =
+      "Resource value must be filled out";
+    return false;
   }
 
   if (vSalaryCountryValue == "" || vSalaryCountryValue == "Choose") {
-    alert("Select appropriate salary unit.");
-    return;
+    document.getElementById("salaryCountryValueInvalid").innerHTML =
+      "Select appropriate salary unit.";
+    return false;
   }
 
   if (vMinSalaryValue == "") {
-    alert("Minimum salary must be filled out");
-    return;
+    document.getElementById("minSalaryInvalid").innerHTML =
+      "Minimum salary must be filled out";
+    return false;
   }
 
   if (vMaxSalaryValue == "") {
-    alert("Maximum salary must be filled out");
-    return;
+    document.getElementById("maxSalaryInvalid").innerHTML =
+      "Maximum salary must be filled out";
+    return false;
   }
 
   if (vTimeValue == "" || vTimeValue == "Choose") {
-    alert("Select any appropriate time.");
-    return;
+    document.getElementById("timeInvalid").innerHTML =
+      "Select any appropriate time.";
+    return false;
   }
 
   if (vApplicantValue == "" || vApplicantValue == "Choose") {
-    alert("Select any applicant type.");
-    return;
+    document.getElementById("applicantValueInvalid").innerHTML =
+      "Select any applicant type.";
+    return false;
   }
 
   if (vClientCompanyNameValue == "") {
-    alert("Company name must be filled out");
-    return;
+    document.getElementById("companyNameInvalid").innerHTML =
+      "Company name must be filled out";
+    return false;
   }
 
   if (vClientCompanyUrlValue == "") {
-    alert("Company url must be filled out");
-    return;
+    document.getElementById("companyUrlInvalid").innerHTML =
+      "Company url must be filled out";
+    return false;
   }
+
+  // if (!isUrlValid(vClientCompanyUrlValue)) {
+  //   document.getElementById("companyUrlInvalid").innerHTML =
+  //     "Invalid company url.";
+  //   return false;
+  // }
+
+  if (vManagerNameValue == "") {
+    document.getElementById("managerNameInvalid").innerHTML =
+      "Manager name must be filled out";
+    return false;
+  }
+
+  if (vManagerEmailValue == "") {
+    document.getElementById("managerEmailInvalid").innerHTML =
+      "Manager email must be filled out";
+    return false;
+  }
+
+  if (vInstructionValue == "") {
+    document.getElementById("instructionInvalid").innerHTML =
+      "Select any instruction.";
+    return false;
+  }
+}
+
+function isUrlValid(userInput) {
+  var res =
+    "/(http(s)?://.)?(www.)?[-a-zA-Z0-9@:%._+~#=]{2,256}.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&=]*)/g";
+  return res.test(userInput);
+  // if (res == null) return false;
+  // else return true;
+}
+
+function isEmailValid(userInput) {
+  var re = "[a - zA - Z0 -9_.+-] +@[a - zA - Z0 - 9 -]+.[a - zA - Z0 - 9 -.] +";
+  return re.test(userInput);
 }
