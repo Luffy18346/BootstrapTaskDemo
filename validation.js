@@ -79,7 +79,7 @@ function checkValidation() {
     return false;
   }
 
-  if (!validateUrl(vManagerEmailValue)) {
+  if (!validateUrl(vClientCompanyUrlValue)) {
     document.getElementById("companyUrlInvalid").innerHTML =
       "Invalid company url";
     return false;
@@ -108,6 +108,9 @@ function checkValidation() {
       "Select any instruction.";
     return false;
   }
+
+  alert("Submission Successful.");
+  return true;
 }
 
 function validateUrl(url) {
